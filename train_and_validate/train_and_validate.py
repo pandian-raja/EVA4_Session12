@@ -109,7 +109,7 @@ def test(model, device, test_loader):
     return image,true_wrong,pred_wrong,test_acc,test_losses
 
 
-def train( model, device, train_loader,test_loader, EPOCH, FACTOR, PATIENCE, MOMENTUM, LEARNING_RATE):
+def train( model, device, train_loader,test_loader, EPOCH):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9, nesterov=True, weight_decay= 0.0001)
     scheduler = optim.lr_scheduler.OneCycleLR(optimizer=optimizer, max_lr=0.008,pct_start =5/24,epochs=24, steps_per_epoch=len(trainloader))
