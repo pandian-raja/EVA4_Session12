@@ -4,7 +4,7 @@ import torch.optim as optim
 import torch
 import numpy as np
 from tqdm import tqdm
-from torch_lr_finder import LRFinder
+# from torch_lr_finder import LRFinder
 
 
     
@@ -162,11 +162,11 @@ def train( model, device, train_loader,test_loader, EPOCH):
         test_losses.append(tst_loss)
         test_acc.append(tst_acc)
         
-    lr_finder = LRFinder(model, optimizer, criterion, device)
-    lr_finder.range_test(train_loader, end_lr=100, num_iter=100)
-    lr_finder.plot() # to inspect the loss-learning rate graph
+#     lr_finder = LRFinder(model, optimizer, criterion, device)
+#     lr_finder.range_test(train_loader, end_lr=100, num_iter=100)
+#     lr_finder.plot() # to inspect the loss-learning rate graph
 #     lr_finder.reset()    
-    return train_losses, train_acc, model,img,true_wrong,pred_wrong,test_acc,test_losses, lr_finder
+    return train_losses, train_acc, model,img,true_wrong,pred_wrong,test_acc,test_losses
 
 
 def validate(testloader, device, model):
